@@ -1,0 +1,6 @@
+{
+  "devAPIUrl": "",
+  "prodAPIUrl": "",
+  "appVersion": "1.0.0",
+  "pageSize":10
+}

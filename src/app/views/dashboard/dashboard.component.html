@@ -1,0 +1,274 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-primary">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right" dropdown>
+            <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+              <i class="icon-settings"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <h4 class="mb-0">9.823</h4>
+          <p>Members online</p>
+        </div>
+        <div class="chart-wrapper px-3" style="height:70px;">
+          <canvas baseChart class="chart"
+                  [datasets]="lineChart1Data"
+                  [labels]="lineChart1Labels"
+                  [options]="lineChart1Options"
+                  [colors]="lineChart1Colours"
+                  [legend]="lineChart1Legend"
+                  [chartType]="lineChart1Type"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-info">
+        <div class="card-body pb-0">
+          <button type="button" class="btn btn-transparent p-0 float-right">
+            <i class="icon-location-pin"></i>
+          </button>
+          <h4 class="mb-0">9.823</h4>
+          <p>Members online</p>
+        </div>
+        <div class="chart-wrapper px-3" style="height:70px;">
+          <canvas baseChart class="chart"
+                  [datasets]="lineChart2Data"
+                  [labels]="lineChart2Labels"
+                  [options]="lineChart2Options"
+                  [colors]="lineChart2Colours"
+                  [legend]="lineChart2Legend"
+                  [chartType]="lineChart2Type"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-warning">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right" dropdown>
+            <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+              <i class="icon-settings"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <h4 class="mb-0">9.823</h4>
+          <p>Members online</p>
+        </div>
+        <div class="chart-wrapper" style="height:70px;">
+          <canvas baseChart class="chart"
+                  [datasets]="lineChart3Data"
+                  [labels]="lineChart3Labels"
+                  [options]="lineChart3Options"
+                  [colors]="lineChart3Colours"
+                  [legend]="lineChart3Legend"
+                  [chartType]="lineChart3Type"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="card text-white bg-danger">
+        <div class="card-body pb-0">
+          <div class="btn-group float-right" dropdown>
+            <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+              <i class="icon-settings"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <h4 class="mb-0">9.823</h4>
+          <p>Members online</p>
+        </div>
+        <div class="chart-wrapper px-3" style="height:70px;">
+          <canvas baseChart class="chart"
+                  [datasets]="barChart1Data"
+                  [labels]="barChart1Labels"
+                  [options]="barChart1Options"
+                  [colors]="barChart1Colours"
+                  [legend]="barChart1Legend"
+                  [chartType]="barChart1Type"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-5">
+          <h4 class="card-title mb-0">Traffic a</h4>
+          <div class="small text-muted">November 2015</div>
+        </div>
+        <div class="col-sm-7 d-none d-md-block">
+          <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
+          <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
+              <label class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option1"> Day
+              </label>
+              <label class="btn btn-outline-secondary active">
+                <input type="radio" name="options" id="option2" checked> Month
+              </label>
+              <label class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option3"> Year
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!testLoad" class="chart-wrapper" style="height:300px;margin-top:40px;">
+        <div class="bg-overlay">
+          <div class="loader">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="testLoad" class="chart-wrapper" style="height:300px;margin-top:40px;">
+        <canvas baseChart class="chart"
+                [datasets]="mainChartData"
+                [labels]="mainChartLabels"
+                [options]="mainChartOptions"
+                [colors]="mainChartColours"
+                [legend]="mainChartLegend"
+                [chartType]="mainChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div class="card-footer">
+      
+    </div>
+  </div>
+  
+  <!--/.card-->
+  <div class="row">
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box facebook">
+        <i class="fa fa-facebook"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+                  [datasets]="socialChartData1"
+                  [labels]="socialChartLabels"
+                  [options]="socialChartOptions"
+                  [colors]="socialChartColours"
+                  [legend]="socialChartLegend"
+                  [chartType]="socialChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>89k</strong>
+            <span>friends</span>
+          </li>
+          <li>
+            <strong>459</strong>
+            <span>feeds</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box twitter">
+        <i class="fa fa-twitter"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+                  [datasets]="socialChartData2"
+                  [labels]="socialChartLabels"
+                  [options]="socialChartOptions"
+                  [colors]="socialChartColours"
+                  [legend]="socialChartLegend"
+                  [chartType]="socialChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>973k</strong>
+            <span>followers</span>
+          </li>
+          <li>
+            <strong>1.792</strong>
+            <span>tweets</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box linkedin">
+        <i class="fa fa-linkedin"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+                  [datasets]="socialChartData3"
+                  [labels]="socialChartLabels"
+                  [options]="socialChartOptions"
+                  [colors]="socialChartColours"
+                  [legend]="socialChartLegend"
+                  [chartType]="socialChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>500+</strong>
+            <span>contacts</span>
+          </li>
+          <li>
+            <strong>292</strong>
+            <span>feeds</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+    <div class="col-sm-6 col-lg-3">
+      <div class="social-box google-plus">
+        <i class="fa fa-google-plus"></i>
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart"
+                  [datasets]="socialChartData4"
+                  [labels]="socialChartLabels"
+                  [options]="socialChartOptions"
+                  [colors]="socialChartColours"
+                  [legend]="socialChartLegend"
+                  [chartType]="socialChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+        </div>
+        <ul>
+          <li>
+            <strong>894</strong>
+            <span>followers</span>
+          </li>
+          <li>
+            <strong>92</strong>
+            <span>circles</span>
+          </li>
+        </ul>
+      </div>
+      <!--/.social-box-->
+    </div><!--/.col-->
+  </div><!--/.row-->
+  
+</div>
